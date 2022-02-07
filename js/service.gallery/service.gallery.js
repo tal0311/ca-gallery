@@ -29,7 +29,7 @@ var gProjects = [
     url: 'https://tal0311.github.io/ca-mvc-book-store/',
     publishedAt: '4.1.2022',
     labels: ['CRUDL', 'MVC', 'DOM manipulations'],
-    img: 'img/bookShop.png',
+    img: 'img/bookShop2.png',
   },
 ]
 

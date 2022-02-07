@@ -49,10 +49,24 @@
     <div class="offcanvas-btn" onClick="openCanvas()">
       <i class="fa fa-comment" aria-hidden="true"></i>
     </div>
-    <aside class="offcanvas-aside">
+    <aside class=" small-container  col-sm-8 offcanvas-aside bg-dark text-light ">
       <!-- Contact -->
       <section id="contact">
         <h4>Contact Me</h4>
+
+        <form>
+  <div class="mb-3 ">
+    <label for="exampleInputEmail1" class="form-label">Email address</label>
+    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+    <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+  </div>
+  <div class="form-floating">
+  <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 100px"></textarea>
+  <label for="floatingTextarea2">Comments</label>
+</div>
+ 
+  <button type="submit" class="submitBtn btn btn-primary">Submit</button>
+</form>
       </section>
     </aside>
 

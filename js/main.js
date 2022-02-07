@@ -80,7 +80,7 @@ function renderProjModal(project) {
                   </p>
                   <ul class="list-inline">
                     <li>Date:${project.date}</li>
-                    <li>Link: ${project.url}</li>
+                    <li><a href="${project.url}">link to project </a></li>
                     <li>Category: ${project.labels}</li>
                   </ul>
                   <button
