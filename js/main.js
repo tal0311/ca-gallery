@@ -1,14 +1,20 @@
 console.log('Starting up')
+$(init)
 
 function init() {
   renderProjects()
+  clickEvents()
 }
 
-function clickEvents() {}
+function clickEvents() {
+  $('.fa-plus').click(function () {
+    readProj($(this).data('id'))
+  })
+}
 
 function renderProjects() {
   const projects = getProjectsForDisplay()
-  console.log(projects)
+
   const strHTMLs = projects.map((project) => {
     return `<div class="col-md-4 col-sm-6 portfolio-item">
             <a
@@ -16,14 +22,14 @@ function renderProjects() {
               data-toggle="modal"
               href="#portfolioModal${project.id}"
             >
-              <div class="portfolio-hover" onclick="redProj('${project.id}')">
-                <div class="portfolio-hover-content">
-                  <i class="fa fa-plus fa-3x"></i>
+              <div class="portfolio-hover">
+                <div class="portfolio-hover-content ">
+                  <i data-id="${project.id}" class="fa fa-plus fa-3x"></i>
                 </div>
               </div>
               <img
                 class="img-fluid"
-                src="img/portfolio/01-thumbnail.jpg"
+                src="${project.img}"
                 alt=""
               />
             </a>
@@ -41,24 +47,40 @@ function renderProjects() {
 function renderProjModal(project) {
   var strHTML = `
  
- 
-               
+  <div
+      class="portfolio-modal modal fade"
+      id="portfolioModal${project.id}"
+      tabindex="-1"
+      role="dialog"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="close-modal" data-dismiss="modal">
+            <div class="lr">
+              <div class="rl"></div>
+            </div>
+          </div>
+          <div class="container">
+            <div class="row">
+              <div class="col-lg-8 mx-auto">
+                <div class="modal-body">
                   <!-- Project Details Go Here -->
                   <h2>${project.name}</h2>
                   <p class="item-intro text-muted">
-                   ${project.title}
+                    ${project.title}
                   </p>
                   <img
                     class="img-fluid d-block mx-auto"
                     src="${project.img}"
-                    alt="${project.name}"
+                    alt=""
                   />
                   <p>
-                    ${project.desc}
+                   ${project.desc}
                   </p>
                   <ul class="list-inline">
-                    <li>Date: ${project.publishedAt}</li>
-                    <li>Client: Threads</li>
+                    <li>Date:${project.date}</li>
+                    <li>Link: ${project.url}</li>
                     <li>Category: ${project.labels}</li>
                   </ul>
                   <button
@@ -70,15 +92,25 @@ function renderProjModal(project) {
                     Close Project
                   </button>
                 </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+               
+                
+                 
               
    
  `
 
-  const $elModalBody = $('.modal-body')
+  const $elModalBody = $('.modal-insertion')
   $elModalBody.html(strHTML)
 }
 
-function redProj(projId) {
+function readProj(projId) {
+  console.log('readProj')
   console.log(projId)
   var proj = getProjById(projId)
   renderProjModal(proj)
