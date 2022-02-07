@@ -85,11 +85,11 @@ function renderProjModal(project) {
                   </p>
                   <ul class="list-inline">
                     <li>Date:${project.date}</li>
-                    <li><a href="${project.url}">link to project </a></li>
+                    <li ><a  href="${project.url}" class="btn btn-danger m-3">link to project </a></li>
                     <li>Category: ${project.labels}</li>
                   </ul>
                   <button
-                    class="btn btn-primary"
+                    class="btn btn-outline-dark"
                     data-dismiss="modal"
                     type="button"
                   >
