@@ -10,6 +10,11 @@ function clickEvents() {
   $('.fa-plus').click(function () {
     readProj($(this).data('id'))
   })
+  $('.submitBtn').click((event) => {
+    event.preventDefault()
+
+    onSubmitContactForm()
+  })
 }
 
 function renderProjects() {
@@ -114,4 +119,14 @@ function readProj(projId) {
   console.log(projId)
   var proj = getProjById(projId)
   renderProjModal(proj)
+}
+
+function onSubmitContactForm() {
+  const mail = $('.email').val()
+  const BODY = $('.msg').val()
+  const SUBJECT = 'new contact form mail'
+
+  window.open(
+    `https://mail.google.com/mail/?view=cm&fs=1&to=tal.amit0311@gmail.com&su=${SUBJECT}&body=${BODY}+${mail}`
+  )
 }
