@@ -84,8 +84,8 @@ function renderProjModal(project) {
                    ${project.desc}
                   </p>
                   <ul class="list-inline">
-                    <li>Date:${project.date}</li>
-                    <li ><a  href="${project.url}" class="btn btn-danger m-3">link to project </a></li>
+                    <li>Publish date: ${project.publishedAt}</li>
+                    <li ><a  href="${project.url}" class="btn btn-danger m-3 text-l" target="blank">link to project </a></li>
                     <li>Category: ${project.labels}</li>
                   </ul>
                   <button
